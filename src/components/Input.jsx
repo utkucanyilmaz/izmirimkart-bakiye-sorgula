@@ -1,14 +1,20 @@
 import React from "react";
+import classNames from "classnames";
 
-function Input({ placeholder, label, desc, onInputChange, value }) {
+function Input({ placeholder, label, desc, onInputChange, value, className }) {
   return (
-    <div className="flex flex-col space-y-4 py-4 text-white w-1/2">
-      <label htmlFor={label}>{desc}</label>
+    <div
+      className={classNames({
+        className: className,
+        "flex flex-col space-y-4 text-white w-full mb-4": true,
+      })}
+    >
+      {desc && <label htmlFor={label}>{desc}</label>}
       <input
         type="text"
         id={label}
         placeholder={placeholder}
-        className="p-2 rounded-md text-black"
+        className="p-2 rounded-md text-black border border-black"
         onChange={onInputChange}
         value={value}
       />

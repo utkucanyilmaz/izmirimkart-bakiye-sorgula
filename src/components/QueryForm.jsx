@@ -4,7 +4,7 @@ import Input from "./Input";
 import { useCardContext } from "../context/CardContext";
 
 function QueryForm({ handleSubmit }) {
-  const { cardInfo, setCardInfo } = useCardContext();
+  const { setCardInfo } = useCardContext();
 
   const [cardNumber, setCardNumber] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +40,7 @@ function QueryForm({ handleSubmit }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center justify-center mt-8"
+      className="flex flex-col items-center justify-center mt-4 md:mt-8"
     >
       <Input
         label={"kartnumarasi"}
@@ -49,7 +49,7 @@ function QueryForm({ handleSubmit }) {
         value={cardNumber}
       />
       <Button isLoading={isLoading} type={"submit"}>
-        Sorgula
+        Bakiye Sorgula
       </Button>
     </form>
   );

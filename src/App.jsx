@@ -1,19 +1,20 @@
-import Button from "./components/Button";
-import QueryForm from "./components/QueryForm";
 import { CardProvider } from "./context/CardContext";
+import { ModalProvider } from "./context/ModalContext";
+import Card from "./components/Card";
+import QueryForm from "./components/QueryForm";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <CardProvider>
-      <main className="container mx-auto my-8 px-4">
-        <nav className="flex items-center justify-between text-white">
-          <h1 className="text-lg md:text-3xl">İzmirim Kart Bakiye Sorgula</h1>
-
-          <Button>Kart Ekle</Button>
-        </nav>
-        <QueryForm />
-      </main>
-    </CardProvider>
+    <ModalProvider>
+      <CardProvider>
+        <Navbar />
+        <main className="container mx-auto my-4 md:my-8 md:px-4">
+          <QueryForm />
+          <Card />
+        </main>
+      </CardProvider>
+    </ModalProvider>
   );
 }
 
