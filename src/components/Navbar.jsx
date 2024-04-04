@@ -6,15 +6,16 @@ import Modal from "./Modal";
 
 function Navbar() {
   const { modalOpen, setModalOpen } = useModalOpen();
-  useEffect(() => {
-    console.log(modalOpen);
-  }, [modalOpen]);
+  function handleModalClick() {
+    setModalOpen(prev => !prev);
+  }
+
   return (
     <>
       <nav className="flex items-center justify-between text-white bg-gray-900 p-6">
         <h1 className="text-base md:text-3xl">İzmirim Kart Bakiye Sorgula</h1>
 
-        <Button type={"button"} onClick={() => setModalOpen(prev => !prev)}>
+        <Button type={"button"} onClick={handleModalClick}>
           Kart Ekle
         </Button>
       </nav>

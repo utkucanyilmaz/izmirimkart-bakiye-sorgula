@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import Input from "./Input";
+import Card from "./Card";
 import { useCardContext } from "../context/CardContext";
 
 function QueryForm({ handleSubmit }) {
-  const { setCardInfo } = useCardContext();
+  const { cardInfo, setCardInfo } = useCardContext();
 
   const [cardNumber, setCardNumber] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -38,20 +39,23 @@ function QueryForm({ handleSubmit }) {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col items-center justify-center mt-4 md:mt-8"
-    >
-      <Input
-        label={"kartnumarasi"}
-        desc="Kart Numarası :"
-        onInputChange={handleChange}
-        value={cardNumber}
-      />
-      <Button isLoading={isLoading} type={"submit"}>
-        Bakiye Sorgula
-      </Button>
-    </form>
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className="grid grid-cols-1 place-items-center md:place-items-baseline md:grid-cols-3 my-4 md:flex-row space-y-4 md:space-x-4 w-full md:w-8/12"
+      >
+        <Input
+          desc={"Kart Numarası"}
+          label={"kartnumarasi"}
+          onInputChange={handleChange}
+          value={cardNumber}
+        />
+        <Button isLoading={isLoading} type={"submit"}>
+          Bakiye Sorgula
+        </Button>
+      </form>
+      <Card />
+    </>
   );
 }
 

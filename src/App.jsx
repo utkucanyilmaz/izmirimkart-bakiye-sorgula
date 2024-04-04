@@ -1,17 +1,18 @@
 import { CardProvider } from "./context/CardContext";
 import { ModalProvider } from "./context/ModalContext";
-import Card from "./components/Card";
+
 import QueryForm from "./components/QueryForm";
 import Navbar from "./components/Navbar";
+import CardList from "./components/CardList";
 
 function App() {
   return (
     <ModalProvider>
       <CardProvider>
         <Navbar />
-        <main className="container mx-auto my-4 md:my-8 md:px-4">
+        <main className="container mx-auto grid grid-cols-1 place-items-center px-4 my-4 md:my-8 space-y-4">
           <QueryForm />
-          <Card />
+          <CardList />
         </main>
       </CardProvider>
     </ModalProvider>

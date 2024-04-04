@@ -7,13 +7,17 @@ function Button({ children, type = "button", isLoading, onClick }) {
     <button
       type={type}
       className={classNames({
-        "bg-blue-600 hover:bg-blue-500 transition-colors text-white rounded-md p-2 text-sm md:text-base flex items-center justify-center min-w-8 min-h-4 md:min-w-16 md:min-h-8": true,
+        "bg-blue-600 hover:bg-blue-500 transition-colors text-white rounded-md py-2 px-4 text-center text-sm md:text-base min-w-12 md:min-w-24 text-nowrap flex items-center justify-center w-fit": true,
         "bg-blue-400": isLoading,
       })}
       disabled={isLoading}
       onClick={onClick}
     >
-      {isLoading ? <FaSpinner className="animate-spin text-base" /> : children}
+      {isLoading ? (
+        <FaSpinner className="animate-spin text-sm md:text-base" />
+      ) : (
+        children
+      )}
     </button>
   );
 }
