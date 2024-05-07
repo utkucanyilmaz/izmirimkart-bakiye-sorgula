@@ -6,11 +6,25 @@ import { useCardContext } from "../context/CardContext";
 
 function Modal() {
   const { setModalOpen } = useModalOpen();
-  const { storedCards, setStoredCards } = useCardContext();
   const [cardName, setCardName] = useState(null);
   const [cardNumber, setCardNumber] = useState(null);
+  const { storedCards, setStoredCards } = useCardContext();
 
-  const addCard = () => {};
+  const addCard = () => {
+    if (!localStorage.getItem("cards")) {
+      localStorage.setItem("cards", JSON.stringify([{ cardName, cardNumber }]));
+    } else {
+      const cards = localStorage.getItem("cards");
+      const parsedCards = JSON.parse(cards);
+
+      localStorage.setItem(
+        "cards",
+        JSON.stringify([...parsedCards, { cardName, cardNumber }])
+      );
+
+      setStoredCards([...parsedCards, { cardName, cardNumber }]);
+    }
+  };
 
   const cancel = () => {
     setModalOpen(false);
