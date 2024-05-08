@@ -8,7 +8,6 @@ export const CardProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("cards")) ?? null
   );
 
-  console.log(storedCards);
   const values = { cardInfo, setCardInfo, storedCards, setStoredCards };
 
   return <CardContext.Provider value={values}>{children}</CardContext.Provider>;

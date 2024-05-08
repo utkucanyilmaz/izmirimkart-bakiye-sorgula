@@ -13,6 +13,8 @@ function Modal() {
   const addCard = () => {
     if (!localStorage.getItem("cards")) {
       localStorage.setItem("cards", JSON.stringify([{ cardName, cardNumber }]));
+
+      setStoredCards([{ cardName, cardNumber }]);
     } else {
       const cards = localStorage.getItem("cards");
       const parsedCards = JSON.parse(cards);
@@ -24,6 +26,9 @@ function Modal() {
 
       setStoredCards([...parsedCards, { cardName, cardNumber }]);
     }
+
+    console.log(storedCards);
+    setModalOpen(false);
   };
 
   const cancel = () => {

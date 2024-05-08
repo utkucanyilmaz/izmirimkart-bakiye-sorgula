@@ -23,7 +23,7 @@ function Card() {
           <div>
             <div className="text-base md:text-lg">Bakiye</div>
             <div className="text-xl md:text-2xl font-semibold">
-              {cardInfo.UlasimKartBakiyesi.MevcutBakiye} TL
+              {cardInfo.UlasimKartBakiyesi.MevcutBakiye} ₺
             </div>
           </div>
         </div>

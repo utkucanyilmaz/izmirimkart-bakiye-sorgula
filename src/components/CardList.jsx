@@ -1,19 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useCardContext } from "../context/CardContext";
+import StoredCard from "./StoredCard";
 
 function CardList() {
   const { storedCards } = useCardContext();
 
   return storedCards ? (
-    <div>
+    <div className="w-full">
       {storedCards.map((card, key) => (
-        <pre className="text-white" key={key}>
-          cardName: {card.cardName} &nbsp; cardNumber: {card.cardNumber}
-        </pre>
+        <StoredCard key={key} cardInfo={card} />
       ))}
     </div>
   ) : (
-    <div>Kayıtlı Kart Bulunamadı.</div>
+    <div className="text-white">Kayıtlı Kart Bulunamadı.</div>
   );
 }
 
